@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<script>
+    fetch(window.location.href + 'iframe').then(function (response) {
+        return response.text();
+    }).then(res => {
+        var iframe = document.createElement('iframe');
+        var html = res;
+        document.body.appendChild(iframe);
+        iframe.width = 600
+        iframe.height = 600
+        iframe.contentWindow.document.open();
+        iframe.contentWindow.document.write(html);
+        iframe.contentWindow.document.close();
+    })
+</script>
+<html>
+
+<body>
+    <h2>HTML Iframes</h2>
+    <p>You can use the height and width attributes to specify the size of the iframe:</p>
+    <div id="iframe" height="500" width="700">
+        <!-- <iframe sandbox="allow-scripts allow-popups allow-forms" src="https://www.freecharge.in/" height="200" width="300"></iframe> -->
+    </div>
+</body>
+
+</html>
